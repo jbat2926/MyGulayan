@@ -1,0 +1,45 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container mt-4">
+  <h1 class="mb-4">Orders List</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Customer Contact</th>
+        <th scope="col">Order Total Price</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Item Price</th>
+        <th scope="col">Price Per Unit</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Product Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders_data %}
+      <tr>
+        <td>{{ order[0] }}</td>
+        <td>{{ order[1] }}</td>
+        <td>{{ order[2] }}</td>
+        <td>{{ order[3] }}</td>
+        <td>{{ order[4] }}</td>
+        <td>{{ order[8] }}</td>
+        <td>{{ order[9] }}</td>
+        <td>{{ order[5] }}</td>
+        <td>{{ order[6] }}</td>
+
+        <td>
+          <img
+            src="{{url_for('static',filename = order[7])}}"
+            alt="Product Image"
+            class="img-fluid"
+            style="max-width: 100px"
+          />
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
